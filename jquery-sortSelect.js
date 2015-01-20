@@ -1,3 +1,6 @@
+/*! jQuery SortSelect v1.0.0 | (c) 2015 
+//@ sourceMappingURL=https://github.com/ricardodemauro/jquerySortSelect
+*/
 (function ($) {
     $.fn.sortSelect = function (options) {
         var opts = $.extend({
