@@ -3,9 +3,9 @@
 */
 (function ($) {
     $.fn.sortSelect = function (options) {
-        var opts = $.extend({compareFunction: compare, firstAttribute: 'text',secondAttribute: 'value', transformFunction: transform}, options);
+        var opts = $.extend({compareFunction: compare, transformContainer: transformContainer, firstAttribute: 'text',secondAttribute: 'value', transformFunction: transform}, options);
 
-        return this.each(function () {__sortSelect(this);});
+        return this.each(function () { __sortSelect(this); opts.transformContainer(this);});
 
         function __sortSelect(selElem) {
             var tmpAry = [];
@@ -30,5 +30,7 @@
         function compare(elem1, elem2) {return elem1.first === elem2.first ? 0 : (elem1.first > elem2.first ? 1 : -1);}
         
         function transform(elem1) { return elem1; }
+
+        function transformContainer(elemContainer) { return elemContainer; }
     }
 }(jQuery));
